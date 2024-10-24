@@ -38,7 +38,7 @@ class DonasiController extends Controller
             \DB::commit();
         } catch (\Exception $e) {
             \DB::rollBack();
-            dd($e);
+            return redirect()->route('donasi')->with('error', $e->getMessage());
         }
 
         // Sementara
