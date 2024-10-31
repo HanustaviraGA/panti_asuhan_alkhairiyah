@@ -7,7 +7,7 @@
     <title>DONASI - {{ $donasi->nama_donasi }}</title>
 </head>
 <body>
-    @include('layouts.header')
+    @include('landing.layouts.header')
 
     <div class="container center">
         <div class="p--2 border--rounded bg-success text-light">

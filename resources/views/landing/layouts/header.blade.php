@@ -25,7 +25,7 @@
             </ul>
           </li>
         </ul>
-          <a href="/Login/" class="btn btn-link" role="button">Masuk</a>
+          <a href="{{ route('login') }}" class="btn btn-link" role="button">Masuk</a>
       </div>
     </div>
 </nav>

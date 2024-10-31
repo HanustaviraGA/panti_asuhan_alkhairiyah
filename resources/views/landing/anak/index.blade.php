@@ -7,7 +7,7 @@
     <title>ANAK ASUH</title>
 </head>
 <body>
-    @include('layouts.header')
+    @include('landing.layouts.header')
 
     <table class="table">
         <thead>

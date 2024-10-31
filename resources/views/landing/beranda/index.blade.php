@@ -7,7 +7,7 @@
     <title>BERANDA</title>
 </head>
 <body>
-    @include('layouts.header')
+    @include('landing.layouts.header')
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">

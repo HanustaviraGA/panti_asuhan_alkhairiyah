@@ -7,7 +7,7 @@
     <title>DONASI - TERIMA KASIH</title>
 </head>
 <body>
-    @include('layouts.header')
+    @include('landing.layouts.header')
 
     <div class="container text-center">
         <br>

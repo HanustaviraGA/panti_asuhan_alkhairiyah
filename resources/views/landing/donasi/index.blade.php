@@ -7,7 +7,7 @@
     <title>DONASI</title>
 </head>
 <body>
-    @include('layouts.header')
+    @include('landing.layouts.header')
 
     <div class="container text-center">
         <h2>DONASI</h2>
