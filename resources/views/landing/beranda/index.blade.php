@@ -10,71 +10,125 @@
     @include('landing.layouts.header')
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-        <img src="{{ asset('assets/beranda/image.png') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
-        <div class="carousel-caption d-md-block">
-            <h5>Ini contoh</h5>
-            <p>contoh</p>
-        </div>
-        </div>
-        <div class="carousel-item">
-        <img src="{{ asset('assets/beranda/image2.png') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
-        <div class="carousel-caption d-md-block">
-            <h5>Ini contoh</h5>
-            <p>contoh</p>
-        </div>
-        </div>
-        <div class="carousel-item">
-        <img src="{{ asset('assets/beranda/image1.png') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
-        <div class="carousel-caption d-md-block">
-            <h5>Ini contoh</h5>
-            <p>contoh</p>
-        </div>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-    </div>
-    <br>
-    <div class="container">
-    <h2>PANTI ASUHAN AL-KHAIRIYAH</h2>
-    <P>
-    Pembangunan Nasional merupakan implementasi nilai tradisional Nusantara dan hal ini sesuai dengan sila ke lima dalam Pancasila yang berbunyi : “Keadilan sosial bagi seluruh rakyat Indonesia”. Dari segi yuridis Operasional UU Nomor 6 Tahun 1997 Pasal 8 : “Masyarakat mempunyai kesempatan yang seluas-luasnya untuk mengadakan usaha kesejahteraan sosial dengan mengindahkan garis kebijakan dan ketentuan-ketentuan sebagaimana ditetapkan dalam peratuaran perundang-undangan”.
-    Berkenaan dengan hal tersebut di atas maka kami Pengurus Pengurus yayasan mendirikan asrama Panti Asuhan Yatim Piatu Al-Khairiyah merasa terpanggil untuk melaksanakan usaha kegitan kesejahteraan sosial dengan memberikan pelayanan sosial kepada anak yatim dan yatim piatu yang tak mampu sebanyak 300 anak Yatim/Yatim Piatu yang ada di lingkungan Yayasan Perguruan Islam Al-Khairiyah.
-    Panti Asuhan Yatim Piatu Al-Khairiyah didirikan sejak tahun 1967, atas prakarsa oleh al- mukarrom KH. ZARQONI (alm) Pendiri Yayasan Perguruan Islam Al-Khairiyah. Pada tahun 1969, Yayasan Al-Khairiyah menerima sebidang tanah waqaf dari Bapak SUGANDA, yang diperuntukan sebagai asrama Panti Asuhan Yatim Piatu Al-Khairiyah.
-            </P>
-            <img src="{{ asset('assets/beranda/image1.png') }}" alt="panti asuhan al-khairiyah" width="600" height="300">
-    <h2>VISI</h2>
-    <P>
-    Menjadi Yayasan yang unggul dalam menyelenggarakan kegitan pendidikan, pelatihan,
-    kesehatan, sosial dan keagamaan berdasarkan nilai-nilai keislaman.</P>
-    <h2>MISI</h2>
-    <p>
-        1. Menyelenggarakan lembaga pendidikan, pelatihan, sosial dan keagamaan yang berkualitas, mandiri dan berdaya saing.
-        <br>
-        2. Melakukan kegiatan antar lembaga, Instansi, untuk meningkatkan pelayanan kepada masyarakat
-    <br>
-        3. Menghasilkan SDM yang unggul dan memiliki akhlak mulia dengan nilai-nilai keimanan dan ketaqwaan kepada Allah SWT.
-    <br>
-        4. Melaksanakan tata kelola lembaga yang baik, dinamis, akuntabel, trasparan dan menjaga nilai-nilai kemanusian.
-    </p>
+        @php
+            $jml = count($banner);
+        @endphp
+        @if($jml == 0)
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('assets/beranda/image.png') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
+                    <div class="carousel-caption d-md-block">
+                        <h5>Ini contoh</h5>
+                        <p>contoh</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('assets/beranda/image2.png') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
+                    <div class="carousel-caption d-md-block">
+                        <h5>Ini contoh</h5>
+                        <p>contoh</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{{ asset('assets/beranda/image1.png') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
+                    <div class="carousel-caption d-md-block">
+                        <h5>Ini contoh</h5>
+                        <p>contoh</p>
+                    </div>
+                </div>
+            </div>
+        @else
+            @php
+                $i = 0;
+            @endphp
+            <div class="carousel-indicators">
+                @for($i = 0; $i < $jml; $i++)
+                    @if($i == 0)
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    @else
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $i }}" aria-label="Slide {{ $i }}"></button>
+                    @endif
+                @endfor
+            </div>
+            <div class="carousel-inner">
+                @for($i = 0; $i < $jml; $i++)
+                    @if($i == 0)
+                        <div class="carousel-item active">
+                            <img src="{{ asset('uploads/banner/'.$banner[$i]->img.'') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
+                            <div class="carousel-caption d-md-block">
+                                <h5>{{ $banner[$i]->judul }}</h5>
+                                <p>{{ $banner[$i]->deskripsi }}</p>
+                            </div>
+                        </div>
+                    @else
+                        <div class="carousel-item">
+                            <img src="{{ asset('uploads/banner/'.$banner[$i]->img.'') }}" class="d-block w-100" alt="panti asuhan" style="height: 500px;">
+                            <div class="carousel-caption d-md-block">
+                                <h5>{{ $banner[$i]->judul }}</h5>
+                                <p>{{ $banner[$i]->deskripsi }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endfor
+            </div>
+        @endif
+
+        @if($jml > 1)
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        @endif
     </div>
 
-    <div class="embed-responsive embed-responsive-1by1">
-    {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=FedOM4mvoSA"></iframe> --}}
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FedOM4mvoSA?si=GsT1piSpR8eee7nT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <br>
+
+    <div class="container">
+        <h2>PANTI ASUHAN AL-KHAIRIYAH</h2>
+
+        {{-- Profile --}}
+        <p style="text-align: justify !important">{{ $profile->isi }}</p>
+        @if(isset($profile->img))
+            <img src="{{ asset('uploads/profile/'.$profile->img.'') }}" alt="panti asuhan al-khairiyah" width="600" height="300">
+        @else
+            <img src="{{ asset('assets/beranda/image1.png') }}" alt="panti asuhan al-khairiyah" width="600" height="300">
+        @endif
+
+        {{-- Visi --}}
+        <h2>VISI</h2>
+        <p style="text-align: justify !important">{{ $visi->isi }}</p>
+
+        {{-- Misi --}}
+        <h2>MISI</h2>
+        @php
+            $i = 1;
+        @endphp
+        @foreach($misi as $misi)
+            <p style="text-align: justify !important">
+                {{ $i }}. {{ $misi->isi }}
+            </p>
+            @php
+                $i++;
+            @endphp
+        @endforeach
+
+    </div>
+
+    <div class="embed-responsive embed-responsive-1by1" style="align-content: center !important;">
+        {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=FedOM4mvoSA"></iframe> --}}
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FedOM4mvoSA?si=GsT1piSpR8eee7nT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
     <footer class="bg-success py-5 mt-5">

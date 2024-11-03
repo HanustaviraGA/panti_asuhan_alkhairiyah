@@ -10,20 +10,24 @@
     @include('admin.layouts.header')
 
     <main class="container mx-auto mt-5 pb-3">
-        <h1>Ubah Data Profile</h1>
+        <h1>Ubah Data Struktur Kepengurusan</h1>
         <div class="border-top mt-5 pt-5">
-            <form action="{{ route('simpan_profile_aksi') }}" method="POST" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('edit_kepengurusan_aksi') }}" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id" required readonly value="{{ $kepengurusan->id }}">
                 <div class="col-md-12">
-                    <label for="textDeskripsi" class="form-label">Deskripsi</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="isi" required value="{{ $profile->isi }}">
+                    <label for="textNama" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="textNama" required name="nama" value="{{ $kepengurusan->nama }}">
+                </div>
+                <div class="col-md-12">
+                    <label for="textJabatan" class="form-label">Jabatan</label>
+                    <input type="text" class="form-control" id="textJabatan" required name="jabatan" value="{{ $kepengurusan->jabatan }}">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="addFile">Pilih gambar</label>
+                    <label for="addFile">Pilih foto</label>
                     <input type="file" class="form-control-file" id="addFile" name="img">
                 </div>
-                <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

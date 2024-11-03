@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('master_profile', function (Blueprint $table) {
+        Schema::create('master_program', function (Blueprint $table) {
             $table->id();
-            $table->text('isi')->nullable();
+            $table->text('judul')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->string('img')->nullable();
+            $table->string('jenis')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('master_profile');
+        Schema::dropIfExists('master_program');
     }
 };

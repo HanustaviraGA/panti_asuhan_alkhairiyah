@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Ubah Data</title>
+    <title>Tambah Data</title>
 </head>
 <body>
     @include('admin.layouts.header')
 
     <main class="container mx-auto mt-5 pb-3">
-        <h1>Ubah Data Profile</h1>
+        <h1>Tambah Data Donasi</h1>
         <div class="border-top mt-5 pt-5">
-            <form action="{{ route('simpan_profile_aksi') }}" method="POST" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('add_donasi_aksi') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-12">
+                    <label for="textJudul" class="form-label">Judul</label>
+                    <input type="text" class="form-control" id="textJudul" required name="nama_donasi">
+                </div>
+                <div class="col-md-12">
                     <label for="textDeskripsi" class="form-label">Deskripsi</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="isi" required value="{{ $profile->isi }}">
+                    <input type="text" class="form-control" id="textDeskripsi" required name="deskripsi_donasi">
+                </div>
+                <div class="col-md-12">
+                    <label for="textTarget" class="form-label">Target</label>
+                    <input type="number" class="form-control" id="textTarget" required name="target_donasi">
+                </div>
+                <div class="col-md-12">
+                    <label for="textDeadline" class="form-label">Deadline</label>
+                    <input type="date" class="form-control" id="textDeadline" required name="deadline_donasi">
                 </div>
                 <br>
                 <div class="form-group">
                     <label for="addFile">Pilih gambar</label>
-                    <input type="file" class="form-control-file" id="addFile" name="img">
+                    <input type="file" class="form-control-file" id="addFile" required name="img">
                 </div>
-                <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

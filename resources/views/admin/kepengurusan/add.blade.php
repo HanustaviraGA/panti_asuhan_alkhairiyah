@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Ubah Data</title>
+    <title>Tambah Data</title>
 </head>
 <body>
     @include('admin.layouts.header')
 
     <main class="container mx-auto mt-5 pb-3">
-        <h1>Ubah Data Profile</h1>
+        <h1>Tambah Data Struktur Kepengurusan</h1>
         <div class="border-top mt-5 pt-5">
-            <form action="{{ route('simpan_profile_aksi') }}" method="POST" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('add_kepengurusan_aksi') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-12">
-                    <label for="textDeskripsi" class="form-label">Deskripsi</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="isi" required value="{{ $profile->isi }}">
+                    <label for="textNama" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="textNama" required name="nama">
+                </div>
+                <div class="col-md-12">
+                    <label for="textJabatan" class="form-label">Jabatan</label>
+                    <input type="text" class="form-control" id="textJabatan" required name="jabatan">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="addFile">Pilih gambar</label>
-                    <input type="file" class="form-control-file" id="addFile" name="img">
+                    <label for="addFile">Pilih foto</label>
+                    <input type="file" class="form-control-file" id="addFile" required name="img">
                 </div>
-                <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

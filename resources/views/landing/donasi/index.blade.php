@@ -18,7 +18,7 @@
             @foreach($donasi as $data)
                 <div class="col-sm-6">
                     <div class="card">
-                        <img src="{{ asset('assets/beranda/'.$data->img_donasi) }}" class="card-img-top" alt="{{ $data->nama_donasi }}">
+                        <img src="{{ asset('uploads/donasi/'.$data->img_donasi) }}" class="card-img-top" alt="{{ $data->nama_donasi }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $data->nama_donasi }}</h5>
                             <p class="card-text">{{ $data->deskripsi_donasi }}</p>

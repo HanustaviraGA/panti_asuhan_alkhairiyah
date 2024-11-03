@@ -61,7 +61,7 @@ class BannerController extends Controller
                 $image->move(public_path('uploads/banner'), $filename);
                 $data['img'] = $filename;
                 // Hapus gambar lama
-                if(is_file(public_path('uploads/banner/'.$query->img))){
+                if(is_file(public_path('uploads/banner/'.$query->img)) && $query->img !== $filename){
                     unlink(public_path('uploads/banner/'.$query->img));
                 }
             }

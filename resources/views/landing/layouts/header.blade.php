@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-success">
     <nav class="navbar">
         <div class="container">
-          <a class="navbar-brand text-light" href="{{ url('/') }}">Al-Khairiyah
+          <a class="navbar-brand text-light" href="{{ route('beranda') }}">Al-Khairiyah
           </a>
         </div>
     </nav>
@@ -11,17 +11,17 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="{{ url('/') }}">BERANDA</a>
+            <a class="nav-link active text-light" aria-current="page" href="{{ route('beranda') }}">BERANDA</a>
             </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               TENTANG KAMI
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/program/">Program</a></li>
-              <li><a class="dropdown-item" href="/Donasi/">Donasi</a></li>
+              <li><a class="dropdown-item" href="{{ route('program') }}">Program</a></li>
+              <li><a class="dropdown-item" href="{{ route('donasi') }}">Donasi</a></li>
               <li><a class="dropdown-item" href="{{ route('anak') }}">Anak Asuh</a></li>
-              <li><a class="dropdown-item" href="/Struktur Kepengurusan/">Struktur Kepengurusan</a></li>
+              <li><a class="dropdown-item" href="{{ route('kepengurusan') }}">Struktur Kepengurusan</a></li>
             </ul>
           </li>
         </ul>

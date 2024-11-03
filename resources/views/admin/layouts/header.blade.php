@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-primary">
     <nav class="navbar">
         <div class="container">
-          <a class="navbar-brand text-light" href="/Beranda/">Al-Khairiyah
+          <a class="navbar-brand text-light" href="{{ route('dashboard') }}">Al-Khairiyah
           </a>
         </div>
     </nav>
@@ -18,14 +18,14 @@
                     TENTANG KAMI
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/AdminProgram/">Program</a></li>
-                    <li><a class="dropdown-item" href="/AdminDonasi/">Donasi</a></li>
+                    <li><a class="dropdown-item" href="{{ route('admin_program') }}">Program</a></li>
+                    <li><a class="dropdown-item" href="{{ route('admin_donasi') }}">Donasi</a></li>
                     <li><a class="dropdown-item" href="{{ route('admin_anak') }}">Anak Asuh</a></li>
-                    <li><a class="dropdown-item" href="/AdminStrukturKepengurusan/">Struktur Kepengurusan</a></li>
+                    <li><a class="dropdown-item" href="{{ route('admin_kepengurusan') }}">Struktur Kepengurusan</a></li>
                 </ul>
             </li>
         </ul>
-        <a href="#" class="btn text-light" role="button">Admin</a>
+        <a href="{{ route('dashboard') }}" class="btn text-light" role="button">Admin</a>
         <a href="{{ route('logout_aksi') }}" class="btn text-light" role="button">Keluar</a>
     </div>
 </div>
