@@ -68,8 +68,8 @@ class AdminDonasiController extends Controller
                 $image->move(public_path('uploads/donasi'), $filename);
                 $data['img_donasi'] = $filename;
                 // Hapus gambar lama
-                if(is_file(public_path('uploads/donasi/'.$query->img)) && $query->img !== $filename){
-                    unlink(public_path('uploads/donasi/'.$query->img));
+                if(is_file(public_path('uploads/donasi/'.$query->img_donasi)) && $query->img_donasi !== $filename){
+                    unlink(public_path('uploads/donasi/'.$query->img_donasi));
                 }
             }
             $query->update($data);
@@ -89,8 +89,8 @@ class AdminDonasiController extends Controller
             $query->update(['deleted_at' => now()]);
             \DB::commit();
             // Hapus gambar
-            if(is_file(public_path('uploads/donasi/'.$query->img))){
-                unlink(public_path('uploads/donasi/'.$query->img));
+            if(is_file(public_path('uploads/donasi/'.$query->img_donasi))){
+                unlink(public_path('uploads/donasi/'.$query->img_donasi));
             }
             return redirect()->route('admin_donasi')->with('success', 'Data donasi berhasil dihapus');
         }catch(\Exception $e){

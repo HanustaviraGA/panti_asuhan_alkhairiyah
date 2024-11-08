@@ -14,7 +14,7 @@
         <div class="border-top mt-5 pt-5">
             <form method="POST" action="{{ route('edit_donasi_aksi') }}" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="id" required readonly value="{{ $donasi->id_donasi }}">
+                <input type="hidden" name="id" required readonly value="{{ $donasi->id }}">
                 <div class="col-md-12">
                     <label for="textJudul" class="form-label">Judul</label>
                     <input type="text" class="form-control" id="textJudul" required name="nama_donasi" value="{{ $donasi->nama_donasi }}">

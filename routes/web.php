@@ -104,7 +104,7 @@ Route::middleware('auth')->group(function () {
     // Tambah & Edit
     Route::get('/dashboard/beranda/profile/tambah', [ProfileController::class, 'add_profile'])->name('add_profile');
     Route::get('/dashboard/beranda/profile/edit', [ProfileController::class, 'edit_profile'])->name('edit_profile');
-    Route::post('/dashboard/beranda/profile/simpan_aksi', [BannerController::class, 'simpan_profile_aksi'])->name('simpan_profile_aksi');
+    Route::post('/dashboard/beranda/profile/simpan_aksi', [ProfileController::class, 'simpan_profile_aksi'])->name('simpan_profile_aksi');
 
     // Beranda - Visi
     // Tambah & Edit
