@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DonasiController;
+use App\Http\Controllers\DonasiMayarController;
 use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
@@ -37,7 +37,8 @@ Route::get('/anak', [LandingController::class, 'anak'])->name('anak');
 Route::get('/kepengurusan', [LandingController::class, 'kepengurusan'])->name('kepengurusan');
 
 // Pembayaran
-Route::post('/pembayaran', [DonasiController::class, 'create_payment'])->name('pembayaran');
+Route::post('/pembayaran', [DonasiMayarController::class, 'create_payment'])->name('pembayaran');
+Route::post('/pembatalan', [DonasiMayarController::class, 'cancel_payment'])->name('pembatalan');
 
 // Dashboard
 Route::get('/login', [LoginController::class, 'index'])->name('login');

@@ -13,7 +13,7 @@
         <div class="p--2 border--rounded bg-success text-light">
             <form class="row g-3" action="{{ route('pembayaran') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" required readonly value="{{ $donasi->id }}" name="id" id="id" />
+                <input type="hidden" required readonly value="{{ $donasi->id }}" name="id_donasi" id="id_donasi" />
                 <div class="col-md-6">
                     <label for="inputNamadepan" class="form-label">Nama Depan</label>
                     <input type="text" required class="form-control" name="nama_depan" id="inputNamadepan">
