@@ -16,12 +16,12 @@
                 @csrf
                 <input type="hidden" name="id" required readonly value="{{ $kepengurusan->id }}">
                 <div class="col-md-12">
-                    <label for="textNama" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="textNama" required name="nama" value="{{ $kepengurusan->nama }}">
+                    <label for="textJudul" class="form-label">Judul</label>
+                    <input type="text" class="form-control" id="textJudul" required name="judul" value="{{ $kepengurusan->judul }}">
                 </div>
                 <div class="col-md-12">
-                    <label for="textJabatan" class="form-label">Jabatan</label>
-                    <input type="text" class="form-control" id="textJabatan" required name="jabatan" value="{{ $kepengurusan->jabatan }}">
+                    <label for="textDeskripsi" class="form-label">Deskripsi</label>
+                    <input type="text" class="form-control" id="textDeskripsi" required name="deskripsi" value="{{ $kepengurusan->deskripsi }}">
                 </div>
                 <br>
                 <div class="form-group">

@@ -64,7 +64,7 @@ class LandingController extends Controller
     }
 
     public function kepengurusan(){
-        $kepengurusan = MasterKepengurusan::orderBy('created_at', 'desc')->get();
+        $kepengurusan = MasterKepengurusan::first();
         return view('landing.kepengurusan.index', compact('kepengurusan'));
     }
 

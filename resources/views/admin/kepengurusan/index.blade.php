@@ -12,7 +12,7 @@
     <main class="container mx-auto mt-5 pb-3">
         <h1>Struktur Kepengurusan</h1>
         <div class="border-top mt-5 pt-5">
-            <a href="{{ route('add_kepengurusan') }}" class="btn btn-outline-success mb-4">Tambah Data</a>
+            {{-- <a href="{{ route('add_kepengurusan') }}" class="btn btn-outline-success mb-4">Tambah Data</a> --}}
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -20,8 +20,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Nama Lengkap</th>
-                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Deskripsi</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -33,8 +32,7 @@
                                     @foreach ($kepengurusan as $data)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $data->nama }}</td>
-                                        <td>{{ $data->jabatan }}</td>
+                                        <td>{{ $data->deskripsi }}</td>
                                         <td>
                                             <a href="{{ route('edit_kepengurusan', ['id' => $data->id]) }}" class="btn btn-outline-primary">Edit</a>
                                             <a href="{{ route('delete_kepengurusan_aksi', ['id' => $data->id]) }}"

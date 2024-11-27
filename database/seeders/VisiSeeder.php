@@ -13,7 +13,7 @@ class VisiSeeder extends Seeder
      */
     public function run(): void
     {
-        MasterVisi::factory()->create([
+        MasterVisi::create([
             'isi' => 'Menjadi Yayasan yang unggul dalam menyelenggarakan kegitan pendidikan,
             pelatihan, kesehatan, sosial dan keagamaan berdasarkan nilai-nilai keislaman.',
         ]);

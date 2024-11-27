@@ -8,8 +8,8 @@ class MasterKepengurusan extends Model
 {
     protected $table = 'master_kepengurusan';
     protected $fillable = [
-        'nama',
-        'jabatan',
+        'judul',
+        'deskripsi',
         'img',
         'created_at',
         'updated_at'

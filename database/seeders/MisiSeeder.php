@@ -13,19 +13,19 @@ class MisiSeeder extends Seeder
      */
     public function run(): void
     {
-        MasterMisi::factory()->create([
+        MasterMisi::create([
             'isi' => 'Menyelenggarakan lembaga pendidikan, pelatihan, sosial dan keagamaan yang berkualitas, mandiri dan berdaya saing.',
         ]);
 
-        MasterMisi::factory()->create([
+        MasterMisi::create([
             'isi' => 'Melakukan kegiatan antar lembaga, Instansi, untuk meningkatkan pelayanan kepada masyarakat',
         ]);
 
-        MasterMisi::factory()->create([
+        MasterMisi::create([
             'isi' => 'Menghasilkan SDM yang unggul dan memiliki akhlak mulia dengan nilai-nilai keimanan dan ketaqwaan kepada Allah SWT.',
         ]);
 
-        MasterMisi::factory()->create([
+        MasterMisi::create([
             'isi' => 'Melaksanakan tata kelola lembaga yang baik, dinamis, akuntabel, trasparan dan menjaga nilai-nilai kemanusian.',
         ]);
     }

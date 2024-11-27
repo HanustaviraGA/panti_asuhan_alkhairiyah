@@ -13,7 +13,7 @@ class ProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        MasterProfile::factory()->create([
+        MasterProfile::create([
             'isi' => 'Pembangunan Nasional merupakan implementasi nilai tradisional
             Nusantara dan hal ini sesuai dengan sila ke lima dalam Pancasila yang berbunyi :
             “Keadilan sosial bagi seluruh rakyat Indonesia”. Dari segi yuridis Operasional

@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProfileSeeder::class,
             VisiSeeder::class,
+            MisiSeeder::class,
+            TujuanSeeder::class,
+            KepengurusanSeeder::class
         ]);
     }
 }
