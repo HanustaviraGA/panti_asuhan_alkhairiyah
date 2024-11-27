@@ -100,35 +100,94 @@
 
         {{-- Profile --}}
         <p style="text-align: justify !important">{{ $profile->isi }}</p>
-        @if(isset($profile->img))
+        {{-- @if(isset($profile->img))
             <img src="{{ asset('uploads/profile/'.$profile->img.'') }}" alt="panti asuhan al-khairiyah" width="600" height="300">
         @else
             <img src="{{ asset('assets/beranda/image1.png') }}" alt="panti asuhan al-khairiyah" width="600" height="300">
-        @endif
+        @endif --}}
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/E04tjqquqi4?si=LYs8RCfRwOqQ9dPm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         {{-- Visi --}}
         <h2>VISI</h2>
         <p style="text-align: justify !important">{{ $visi->isi }}</p>
 
         {{-- Misi --}}
-        <h2>MISI</h2>
-        @php
-            $i = 1;
-        @endphp
-        @foreach($misi as $misi)
-            <p style="text-align: justify !important">
-                {{ $i }}. {{ $misi->isi }}
-            </p>
+        @if(count($misi) > 0)
+            <h2>MISI</h2>
             @php
-                $i++;
+                $i = 1;
             @endphp
-        @endforeach
+            @foreach($misi as $misi)
+                <p style="text-align: justify !important">
+                    {{ $i }}. {{ $misi->isi }}
+                </p>
+                @php
+                    $i++;
+                @endphp
+            @endforeach
+        @endif
 
+        {{-- Tujuan --}}
+        @if(count($tujuan) > 0)
+            <h2>TUJUAN</h2>
+            @php
+                $i = 1;
+            @endphp
+            @foreach($tujuan as $tujuan)
+                <p style="text-align: justify !important">
+                    {{ $i }}. {{ $tujuan->isi }}
+                </p>
+                @php
+                    $i++;
+                @endphp
+            @endforeach
+        @endif
+
+    </div>
+
+    {{-- Donasi --}}
+    @if(count($donasi) > 0)
+        <div class="container">
+            <h2 class="text">DONASI</h2>
+            <div class="row">
+                @foreach($donasi as $data)
+                    <div class="col-md-6 mb-5">
+                        <div class="card">
+                            <img src="{{ asset('uploads/donasi/'.$data->img_donasi) }}" class="card-img-top" alt="{{ $data->nama_donasi }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $data->nama_donasi }}</h5>
+                                <p class="card-text">{{ $data->deskripsi_donasi }}</p>
+                                <h6>Rp{{ number_format($data->target_donasi, 2, ',', '.') }}</h6>
+                                @php
+                                    $progress = ($data->terkumpul_donasi / $data->target_donasi) * 100;
+                                    $progress_fix = round($progress);
+                                @endphp
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: {{ $progress_fix }}%;" aria-valuenow="{{ $progress_fix }}" aria-valuemin="0" aria-valuemax="100">
+                                        {{ $progress_fix }}%
+                                    </div>
+                                </div>
+                                <a href="{{ url('/donasi/proses/'.$data->id.'') }}" class="btn btn-primary mt-3" aria-label="Donasi untuk Asrama">DONASI</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    <div class="container">
+        <h2 class="text">ALAMAT</h2>
+
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.0962117427166!2d106.91811607376266!3d-6.117749793868885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a201bd16da507%3A0x53b8635e9dea2f9a!2sPanti%20Asuhan%20Al-khairiyah!5e0!3m2!1sid!2sid!4v1731971429283!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
 
     <div class="embed-responsive embed-responsive-1by1" style="align-content: center !important;">
         {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=FedOM4mvoSA"></iframe> --}}
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FedOM4mvoSA?si=GsT1piSpR8eee7nT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {{-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FedOM4mvoSA?si=GsT1piSpR8eee7nT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
     </div>
 
     <footer class="bg-success py-5 mt-5">
@@ -139,7 +198,7 @@
             <a href="https://www.bing.com/search?pglt=169&q=BUTTON+ICON+BOOTSTRAP&cvid=e53828f686d442009f70ec6f29fcc07f&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQABhAMgYIAhAAGEDSAQg4MjQ0ajBqMagCALACAA&FORM=ANNTA1&PC=HCTS" class="btn btn-success" role="button">Instagram</a>
             <a href="https://www.bing.com/search?pglt=169&q=BUTTON+ICON+BOOTSTRAP&cvid=e53828f686d442009f70ec6f29fcc07f&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQABhAMgYIAhAAGEDSAQg4MjQ0ajBqMagCALACAA&FORM=ANNTA1&PC=HCTS" class="btn btn-success" role="button">Whatsapp</a>
             <br>
-            <small class="text-white">&COPY; Copyright by PANTI. ALL RIGHT RESERVED.</small>
+            <small class="text-white">Hak Cipta &COPY; {{ date('Y') }} PANTI ASUHAN AL-KHAIRIYAH. ALL RIGHT RESERVED.</small>
         </div>
     </footer>
 

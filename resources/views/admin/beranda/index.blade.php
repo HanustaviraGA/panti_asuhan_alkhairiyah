@@ -9,6 +9,7 @@
 <body>
     @include('admin.layouts.header')
 
+    {{-- Banner --}}
     <main class="container mx-auto mt-5 pb-3">
         <h1>Banner Beranda</h1>
         <div class="border-top mt-5 pt-5">
@@ -57,6 +58,7 @@
         </div>
     </main>
 
+    {{-- Profile --}}
     <main class="container mx-auto mt-5 pb-3">
         <h1>Profile Panti</h1>
         <div class="border-top mt-5 pt-5">
@@ -90,6 +92,7 @@
         </div>
     </main>
 
+    {{-- Visi --}}
     <main class="container mx-auto mt-5 pb-3">
         <h1>Visi</h1>
         <div class="border-top mt-5 pt-5">
@@ -123,6 +126,7 @@
         </div>
     </main>
 
+    {{-- Misi --}}
     <main class="container mx-auto mt-5 pb-3">
         <h1>Misi</h1>
         <div class="border-top mt-5 pt-5">
@@ -159,6 +163,106 @@
                                 @else
                                     <tr>
                                         <td colspan="3" style="text-align: center;">Tidak ada data</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {{-- Tujuan --}}
+    <main class="container mx-auto mt-5 pb-3">
+        <h1>Tujuan</h1>
+        <div class="border-top mt-5 pt-5">
+            <a href="{{ route('add_tujuan') }}" class="btn btn-outline-success">Tambah Data</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <br>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @if(count($tujuan) > 0)
+                                    @foreach ($tujuan as $data)
+                                    <tr>
+                                        <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $data->isi }}</td>
+                                        <td>
+                                            <a href="{{ route('edit_tujuan', ['id' => $data->id]) }}" class="btn btn-outline-primary">Edit</a>
+                                            <a href="{{ route('delete_tujuan_aksi', $data->id) }}"
+                                                onclick="return confirmDelete(event);"
+                                                class="btn btn-outline-danger">Hapus</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="3" style="text-align: center;">Tidak ada data</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {{-- Donasi --}}
+    <main class="container mx-auto mt-5 pb-3">
+        <h1>Donasi</h1>
+        <div class="border-top mt-5 pt-5">
+            <a href="{{ route('add_donasi') }}" class="btn btn-outline-success">Tambah Data</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <br>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Judul</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @if(count($donasi) > 0)
+                                    @foreach ($donasi as $data)
+                                    <tr>
+                                        <th scope="row">{{ $no++ }}</th>
+                                        <td>{{ $data->nama_donasi }}</td>
+                                        <td>{{ $data->deskripsi_donasi }}</td>
+                                        <td>
+                                            @if($data->terkumpul_donasi == 0)
+                                                <a href="{{ route('edit_donasi', ['id' => $data->id]) }}" class="btn btn-outline-primary">Edit</a>
+                                                <a href="{{ route('delete_donasi_aksi', ['id' => $data->id]) }}"
+                                                    onclick="return confirmDelete(event);"
+                                                    class="btn btn-outline-danger">Hapus</a>
+                                            @else
+                                                <p>Tidak dapat melakukan pengubahan</p>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="4" style="text-align: center;">Tidak ada data</td>
                                     </tr>
                                 @endif
                             </tbody>

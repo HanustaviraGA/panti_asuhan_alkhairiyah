@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-success">
     <nav class="navbar">
         <div class="container">
-          <a class="navbar-brand text-light" href="{{ route('beranda') }}">Al-Khairiyah
-          </a>
+            <a href="{{ route('beranda') }}">
+                <img src="{{ asset('assets/logo.jpg') }}" width="70" height="60" alt="Panti Asuhan Al - Khairiyah">
+            </a>
         </div>
     </nav>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +20,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="{{ route('program') }}">Program</a></li>
-              <li><a class="dropdown-item" href="{{ route('donasi') }}">Donasi</a></li>
+              {{-- <li><a class="dropdown-item" href="{{ route('donasi') }}">Donasi</a></li> --}}
               <li><a class="dropdown-item" href="{{ route('anak') }}">Anak Asuh</a></li>
               <li><a class="dropdown-item" href="{{ route('kepengurusan') }}">Struktur Kepengurusan</a></li>
             </ul>

@@ -9,6 +9,7 @@ use App\Models\MasterDonasi;
 use App\Models\MasterProfile;
 use App\Models\MasterVisi;
 use App\Models\MasterMisi;
+use App\Models\MasterTujuan;
 use App\Models\MasterBanner;
 use App\Models\MasterProgram;
 use App\Models\MasterKepengurusan;
@@ -24,9 +25,13 @@ class LandingController extends Controller
         $visi = MasterVisi::first();
         // Misi
         $misi = MasterMisi::all();
+        // Tujuan
+        $tujuan = MasterTujuan::all();
         // Banner
         $banner = MasterBanner::all();
-        return view('landing.beranda.index', compact('banner', 'profile', 'visi', 'misi'));
+        // Donasi
+        $donasi = MasterDonasi::where('deleted_at', NULL)->orderBy('created_at', 'desc')->get();
+        return view('landing.beranda.index', compact('banner', 'profile', 'visi', 'misi', 'tujuan', 'donasi'));
     }
 
     // Program

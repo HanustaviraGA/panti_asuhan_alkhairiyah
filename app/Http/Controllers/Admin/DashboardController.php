@@ -9,6 +9,8 @@ use App\Models\MasterBanner;
 use App\Models\MasterProfile;
 use App\Models\MasterVisi;
 use App\Models\MasterMisi;
+use App\Models\MasterTujuan;
+use App\Models\MasterDonasi;
 
 class DashboardController extends Controller
 {
@@ -27,7 +29,11 @@ class DashboardController extends Controller
         $visi = MasterVisi::where('id', 1)->first();
         // Misi
         $misi = MasterMisi::all();
-        return view('admin.beranda.index', compact('banner', 'profile', 'visi', 'misi'));
+        // Tujuan
+        $tujuan = MasterTujuan::all();
+        // Donasi
+        $donasi = MasterDonasi::where('deleted_at', NULL)->get();
+        return view('admin.beranda.index', compact('banner', 'profile', 'visi', 'misi', 'tujuan', 'donasi'));
     }
 
 }

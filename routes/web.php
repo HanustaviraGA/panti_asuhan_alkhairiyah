@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin\VisiController;
 use App\Http\Controllers\Admin\MisiController;
 // Kepengurusan
 use App\Http\Controllers\Admin\KepengurusanController;
+// Tujuan
+use App\Http\Controllers\Admin\TujuanController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -122,4 +124,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/beranda/misi/edit_aksi', [MisiController::class, 'edit_misi_aksi'])->name('edit_misi_aksi');
     // Hapus
     Route::get('/dashboard/beranda/misi/hapus/{id}', [MisiController::class, 'delete_misi_aksi'])->name('delete_misi_aksi');
+
+    // Beranda - Tujuan
+    // Tambah
+    Route::get('/dashboard/beranda/tujuan/tambah', [TujuanController::class, 'add_tujuan'])->name('add_tujuan');
+    Route::post('/dashboard/beranda/tujuan/tambah_aksi', [TujuanController::class, 'add_tujuan_aksi'])->name('add_tujuan_aksi');
+    // Edit
+    Route::get('/dashboard/beranda/tujuan/edit', [TujuanController::class, 'edit_tujuan'])->name('edit_tujuan');
+    Route::post('/dashboard/beranda/tujuan/edit_aksi', [TujuanController::class, 'edit_tujuan_aksi'])->name('edit_tujuan_aksi');
+    // Hapus
+    Route::get('/dashboard/beranda/tujuan/hapus/{id}', [TujuanController::class, 'delete_tujuan_aksi'])->name('delete_tujuan_aksi');
 });
