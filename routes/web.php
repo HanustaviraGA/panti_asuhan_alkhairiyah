@@ -24,6 +24,8 @@ use App\Http\Controllers\Admin\MisiController;
 use App\Http\Controllers\Admin\KepengurusanController;
 // Tujuan
 use App\Http\Controllers\Admin\TujuanController;
+// Admin
+use App\Http\Controllers\Admin\SuperController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -48,6 +50,17 @@ Route::post('/login_aksi', [LoginController::class, 'login_aksi'])->name('login_
 Route::get('/logout_aksi', [LoginController::class, 'logout_aksi'])->name('logout_aksi');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    // Super Admin
+    Route::get('/dashboard/superadmin', [SuperController::class, 'superadmin'])->name('admin_superadmin');
+    // Tambah
+    Route::get('/dashboard/superadmin/tambah', [SuperController::class, 'add_superadmin'])->name('add_superadmin');
+    Route::post('/dashboard/superadmin/tambah_aksi', [SuperController::class, 'add_superadmin_aksi'])->name('add_superadmin_aksi');
+    // Edit
+    Route::get('/dashboard/superadmin/edit', [SuperController::class, 'edit_superadmin'])->name('edit_superadmin');
+    Route::post('/dashboard/superadmin/edit_aksi', [SuperController::class, 'edit_superadmin_aksi'])->name('edit_superadmin_aksi');
+    // Hapus
+    Route::get('/dashboard/superadmin/hapus', [SuperController::class, 'delete_superadmin_aksi'])->name('delete_superadmin_aksi');
 
     // Program
     Route::get('/dashboard/program', [ProgramController::class, 'program'])->name('admin_program');

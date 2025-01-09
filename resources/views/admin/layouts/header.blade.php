@@ -26,7 +26,9 @@
                 </ul>
             </li>
         </ul>
-        <a href="{{ route('dashboard') }}" class="btn text-light" role="button">Admin</a>
+        @if(\Auth::user()->role == 'SA')
+            <a href="{{ route('admin_superadmin') }}" class="btn text-light" role="button">Admin</a>
+        @endif
         <a href="{{ route('logout_aksi') }}" class="btn text-light" role="button">Keluar</a>
     </div>
 </div>
