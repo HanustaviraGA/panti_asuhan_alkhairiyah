@@ -11,23 +11,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active text-light" aria-current="page" href="{{ route('dashboard') }}">BERANDA</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    TENTANG KAMI
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ route('admin_program') }}">Program</a></li>
-                    {{-- <li><a class="dropdown-item" href="{{ route('admin_donasi') }}">Donasi</a></li> --}}
-                    <li><a class="dropdown-item" href="{{ route('admin_anak') }}">Anak Asuh</a></li>
-                    <li><a class="dropdown-item" href="{{ route('admin_kepengurusan') }}">Struktur Kepengurusan</a></li>
-                </ul>
-            </li>
+            @if(\Auth::user()->role !== 'SA')
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="{{ route('dashboard') }}">BERANDA</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        TENTANG KAMI
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('admin_program') }}">Program</a></li>
+                        {{-- <li><a class="dropdown-item" href="{{ route('admin_donasi') }}">Donasi</a></li> --}}
+                        <li><a class="dropdown-item" href="{{ route('admin_anak') }}">Anak Asuh</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin_kepengurusan') }}">Struktur Kepengurusan</a></li>
+                    </ul>
+                </li>
+            @endif
         </ul>
         @if(\Auth::user()->role == 'SA')
-            <a href="{{ route('admin_superadmin') }}" class="btn text-light" role="button">Admin</a>
+            <a href="{{ route('admin_superadmin') }}" class="btn text-light" role="button">Super Admin</a>
         @endif
         <a href="{{ route('logout_aksi') }}" class="btn text-light" role="button">Keluar</a>
     </div>

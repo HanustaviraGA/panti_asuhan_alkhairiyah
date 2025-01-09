@@ -21,6 +21,9 @@ class DashboardController extends Controller
     }
 
     public function dashboard(){
+        if(Auth::user()->role == 'SA'){
+            return redirect()->route('admin_superadmin');
+        }
         // Banner
         $banner = MasterBanner::all();
         // Profile

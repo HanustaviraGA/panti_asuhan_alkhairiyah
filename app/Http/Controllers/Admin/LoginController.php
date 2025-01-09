@@ -12,7 +12,11 @@ class LoginController extends Controller
 {
     public function index(){
         if(Auth::check()){
-            return redirect()->route('dashboard');
+            if(Auth::user()->role == 'SA'){
+                return redirect()->route('admin_superadmin');
+            }else{
+                return redirect()->route('dashboard');
+            }
         }else{
             return view('login.index');
         }
