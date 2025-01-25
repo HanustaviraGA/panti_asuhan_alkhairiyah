@@ -20,6 +20,7 @@ class SuperController extends Controller
 
     public function add_superadmin_aksi(Request $request){
         $data = $request->all();
+        $data['password'] = \Hash::make($data['password']);
         $query = User::create($data);
         if($query){
             return redirect()->route('admin_superadmin')->with('success', 'Data berhasil ditambahkan');
@@ -38,6 +39,9 @@ class SuperController extends Controller
     public function edit_superadmin_aksi(Request $request){
         $data = $request->all();
         unset($data['_token']);
+        if(isset($data['password'])){
+            $data['password'] = \Hash::make($data['password']);
+        }
         $query = User::where('id', $data['id'])->update($data);
         if($query){
             return redirect()->route('admin_superadmin')->with('success', 'Data berhasil diubah');
