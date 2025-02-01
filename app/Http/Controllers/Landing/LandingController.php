@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Landing;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MasterAnak;
+use App\Models\MasterGambarAnak;
 use App\Models\MasterDonasi;
 use App\Models\MasterProfile;
 use App\Models\MasterVisi;
@@ -59,8 +60,9 @@ class LandingController extends Controller
 
     // Anak
     public function anak(){
+        $gambar = MasterGambarAnak::all();
         $anak = MasterAnak::orderBy('created_at', 'desc')->get();
-        return view('landing.anak.index', compact('anak'));
+        return view('landing.anak.index', compact('anak', 'gambar'));
     }
 
     public function kepengurusan(){

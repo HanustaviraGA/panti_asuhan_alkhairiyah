@@ -95,6 +95,16 @@ Route::middleware('auth')->group(function () {
     // Hapus
     Route::get('/dashboard/anak/hapus/{id}', [AnakAsuhController::class, 'delete_anak_aksi'])->name('delete_anak_aksi');
 
+    // Gambar Anak Asuh
+    // Tambah
+    Route::get('/dashboard/anak/tambah_gambar', [AnakAsuhController::class, 'add_gambar_anak'])->name('add_gambar_anak');
+    Route::post('/dashboard/anak/tambah_gambar_aksi', [AnakAsuhController::class, 'add_gambar_anak_aksi'])->name('add_gambar_anak_aksi');
+    // Edit
+    Route::get('/dashboard/anak/edit_gambar', [AnakAsuhController::class, 'edit_gambar_anak'])->name('edit_gambar_anak');
+    Route::post('/dashboard/anak/edit_gambar_aksi', [AnakAsuhController::class, 'edit_gambar_anak_aksi'])->name('edit_gambar_anak_aksi');
+    // Hapus
+    Route::get('/dashboard/anak/hapus_gambar/{id}', [AnakAsuhController::class, 'delete_gambar_anak_aksi'])->name('delete_gambar_anak_aksi');
+
     // Kepengurusan
     Route::get('/dashboard/kepengurusan', [KepengurusanController::class, 'kepengurusan'])->name('admin_kepengurusan');
     // Tambah

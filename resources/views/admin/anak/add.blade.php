@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href='{{ asset('assets/logo.jpg') }}' rel="shortcut icon">
     <title>Tambah Data</title>
 </head>
 <body>
@@ -20,27 +21,27 @@
                 </div> --}}
                 <div class="col-md-12">
                     <label for="textDeskripsi" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="nama">
+                    <input type="text" class="form-control" id="textDeskripsi" name="nama" required>
                 </div>
                 <div class="col-md-12">
                     <label for="textDeskripsi" class="form-label">Usia</label>
-                    <input type="number" class="form-control" id="textDeskripsi" name="usia">
+                    <input type="number" class="form-control" id="textDeskripsi" name="usia" required>
                 </div>
                 <div class="col-md-12">
                     <label for="textDeskripsi" class="form-label">Asal Daerah</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="asal_daerah">
+                    <input type="text" class="form-control" id="textDeskripsi" name="asal_daerah" required>
                 </div>
                 <div class="col-md-12">
                     <label for="textDeskripsi" class="form-label">Pendidikan</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="pendidikan">
+                    <input type="text" class="form-control" id="textDeskripsi" name="pendidikan" required>
                 </div>
                 <div class="col-md-12">
                     <label for="textDeskripsi" class="form-label">Prestasi</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="prestasi">
+                    <input type="text" class="form-control" id="textDeskripsi" name="prestasi" required>
                 </div>
                 <div class="col-md-12">
                     <label for="textDeskripsi" class="form-label">Cita-Cita</label>
-                    <input type="text" class="form-control" id="textDeskripsi" name="cita_cita">
+                    <input type="text" class="form-control" id="textDeskripsi" name="cita_cita" required>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
