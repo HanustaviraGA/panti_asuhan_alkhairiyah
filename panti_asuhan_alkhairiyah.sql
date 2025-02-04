@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 09/01/2025 19:57:11
+ Date: 02/02/2025 06:51:12
 */
 
 SET NAMES utf8mb4;
@@ -105,7 +105,7 @@ CREATE TABLE `master_anak`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for master_banner
@@ -155,6 +155,21 @@ CREATE TABLE `master_donatur`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for master_gambar_anak
+-- ----------------------------
+DROP TABLE IF EXISTS `master_gambar_anak`;
+CREATE TABLE `master_gambar_anak`  (
+  `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `judul` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `deskripsi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `file` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `deleted_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -169,7 +184,7 @@ CREATE TABLE `master_kepengurusan`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of master_kepengurusan
@@ -227,7 +242,7 @@ CREATE TABLE `master_program`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for master_tujuan
@@ -339,11 +354,12 @@ CREATE TABLE `users`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE,
   UNIQUE INDEX `users_username_unique`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'Admin', 'admin@alkhairiyah.com', 'admin', '2024-11-27 21:17:34', '$2y$12$k1qxOMLGBQ8RUpJupX6OFOGA48IVGfqSg.uhZ9Ouuv4f4LSt4hcfC', 'anj8Smy37lxmVr5ofVCXtXSZpA9heV4pPRnybNd2t4AXiqk0t14saqrxjyp2', 'SA', '2024-11-27 21:17:35', '2024-11-27 21:17:35');
+INSERT INTO `users` VALUES (1, 'Super Admin', 'superadmin@alkhairiyah.com', 'superadmin', '2024-11-27 21:17:34', '$2y$12$k1qxOMLGBQ8RUpJupX6OFOGA48IVGfqSg.uhZ9Ouuv4f4LSt4hcfC', '4HXL1uw2rQCht0QYbE8ZiFlkvSMheGKf5R5NgBuYO4tmDtvgFexix5gvCk97', 'SA', '2024-11-27 21:17:35', '2024-11-27 21:17:35');
+INSERT INTO `users` VALUES (4, 'Admin', 'admin@gmail.com', 'admin', NULL, '$2y$12$k1qxOMLGBQ8RUpJupX6OFOGA48IVGfqSg.uhZ9Ouuv4f4LSt4hcfC', NULL, 'AD', '2025-01-09 15:04:26', '2025-01-25 00:13:36');
 
 SET FOREIGN_KEY_CHECKS = 1;
