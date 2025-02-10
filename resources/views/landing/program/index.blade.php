@@ -71,7 +71,7 @@
             <h2>PROGRAM BULANAN</h2>
         </div>
         <br>
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="false">
             @php
                 $jml = count($bulanan);
                 $i = 0;
@@ -79,9 +79,9 @@
             <div class="carousel-indicators">
                 @for($i = 0; $i < $jml; $i++)
                     @if($i == 0)
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     @else
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $i }}" aria-label="Slide {{ $i }}"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="{{ $i }}" aria-label="Slide {{ $i }}"></button>
                     @endif
                 @endfor
             </div>
@@ -107,11 +107,11 @@
                 @endfor
             </div>
             @if($jml > 1)
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -125,7 +125,7 @@
             <h2>PROGRAM TAHUNAN</h2>
         </div>
         <br>
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+        <div id="carouselExampleCaptions3" class="carousel slide" data-bs-ride="false">
             @php
                 $jml = count($tahunan);
                 $i = 0;
@@ -133,9 +133,9 @@
             <div class="carousel-indicators">
                 @for($i = 0; $i < $jml; $i++)
                     @if($i == 0)
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     @else
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $i }}" aria-label="Slide {{ $i }}"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="{{ $i }}" aria-label="Slide {{ $i }}"></button>
                     @endif
                 @endfor
             </div>
@@ -161,11 +161,11 @@
                 @endfor
             </div>
             @if($jml > 1)
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
