@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonasiMayarController;
+use App\Http\Controllers\DonasiMidtransController;
 use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
@@ -41,8 +42,11 @@ Route::get('/anak', [LandingController::class, 'anak'])->name('anak');
 Route::get('/kepengurusan', [LandingController::class, 'kepengurusan'])->name('kepengurusan');
 
 // Pembayaran
-Route::post('/pembayaran', [DonasiMayarController::class, 'create_payment'])->name('pembayaran');
-Route::post('/pembatalan', [DonasiMayarController::class, 'cancel_payment'])->name('pembatalan');
+// Route::post('/pembayaran', [DonasiMayarController::class, 'create_payment'])->name('pembayaran');
+// Route::post('/pembatalan', [DonasiMayarController::class, 'cancel_payment'])->name('pembatalan');
+Route::post('/pembayaran', [DonasiMidtransController::class, 'createPayment'])->name('pembayaran');
+Route::post('/pembatalan', [DonasiMidtransController::class, 'cancel'])->name('pembatalan');
+Route::post('/trial/notification', [DonasiMidtransController::class, 'notification'])->name('notification');
 
 // Dashboard
 Route::get('/login', [LoginController::class, 'index'])->name('login');

@@ -123,7 +123,9 @@ class AnakAsuhController extends Controller
             $query = MasterGambarAnak::where('id', $data['id'])->first();
             // Cek ada gambar atau tidak
             if($request->file('file')){
-                unlink(public_path('uploads/anak/'.$query['file']));
+                if(is_file(public_path('uploads/anak/'.$query['file']))){
+                    unlink(public_path('uploads/anak/'.$query['file']));
+                }
                 $file = $request->file('file');
                 $filename = time().'_'.uniqid() . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('uploads/anak'), $filename);
@@ -142,7 +144,7 @@ class AnakAsuhController extends Controller
         \DB::beginTransaction();
         try{
             $query = MasterGambarAnak::where('id', $id)->first();
-            if($query['file']){
+            if($query['file'] && is_file(public_path('uploads/anak/'.$query['file']))){
                 unlink(public_path('uploads/anak/'.$query['file']));
             }
             $query->delete();
