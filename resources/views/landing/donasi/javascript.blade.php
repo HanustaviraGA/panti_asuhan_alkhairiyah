@@ -115,7 +115,7 @@
                                                 btnClass: 'btn-primary',
                                                 keys: ['enter'],
                                                 action: function () {
-                                                    window.location.href = 'https://app.sandbox.midtrans.com/snap/v2/vtweb/'+res.token;
+                                                    window.location.href = '{{ $base_url }}'+res.token;
                                                 }
                                             }, cancel: function () {
                                                 $.confirm({

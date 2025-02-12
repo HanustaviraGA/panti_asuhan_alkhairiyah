@@ -51,7 +51,12 @@ class LandingController extends Controller
 
     public function donasi_step_two($id){
         $donasi = MasterDonasi::where('id', $id)->first();
-        return view('landing.donasi.donasi2', compact('donasi'));
+        if(env('MIDTRANS_PRODUCTION') == true){
+            $base_url = env('MIDTRANS_BASE_URL');
+        }else{
+            $base_url = env('MIDTRANS_BASE_URL_SB');
+        }
+        return view('landing.donasi.donasi2', compact('donasi', 'base_url'));
     }
 
     public function donasi_step_three(){
