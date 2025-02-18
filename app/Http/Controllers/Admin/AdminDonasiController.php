@@ -49,10 +49,10 @@ class AdminDonasiController extends Controller
         try{
             $query = MasterDonasi::create($data);
             \DB::commit();
-            return redirect()->route('admin_donasi')->with('success', 'Data donasi berhasil ditambahkan');
+            return redirect()->route('dashboard')->with('success', 'Data donasi berhasil ditambahkan');
         }catch(\Exception $e){
             \DB::rollBack();
-            return redirect()->route('admin_donasi')->with('error', $e->getMessage());
+            return redirect()->route('dashboard')->with('error', $e->getMessage());
         }
     }
 
@@ -74,10 +74,10 @@ class AdminDonasiController extends Controller
             }
             $query->update($data);
             \DB::commit();
-            return redirect()->route('admin_donasi')->with('success', 'Data donasi berhasil diubah');
+            return redirect()->route('dashboard')->with('success', 'Data donasi berhasil diubah');
         }catch(\Exception $e){
             \DB::rollBack();
-            return redirect()->route('admin_donasi')->with('error', $e->getMessage());
+            return redirect()->route('dashboard')->with('error', $e->getMessage());
         }
     }
 
@@ -92,10 +92,10 @@ class AdminDonasiController extends Controller
             if(is_file(public_path('uploads/donasi/'.$query->img_donasi))){
                 unlink(public_path('uploads/donasi/'.$query->img_donasi));
             }
-            return redirect()->route('admin_donasi')->with('success', 'Data donasi berhasil dihapus');
+            return redirect()->route('dashboard')->with('success', 'Data donasi berhasil dihapus');
         }catch(\Exception $e){
             \DB::rollBack();
-            return redirect()->route('admin_donasi')->with('error', $e->getMessage());
+            return redirect()->route('dashboard')->with('error', $e->getMessage());
         }
     }
 }

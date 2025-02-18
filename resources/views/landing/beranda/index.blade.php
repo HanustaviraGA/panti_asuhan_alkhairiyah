@@ -169,7 +169,11 @@
                                         {{ $progress_fix }}%
                                     </div>
                                 </div>
-                                <a href="{{ url('/donasi/proses/'.$data->id.'') }}" class="btn btn-primary mt-3" aria-label="Donasi untuk Asrama">DONASI</a>
+                                @if($data->terkumpul_donasi >= $data->target_donasi)
+                                    <p class="card-text">Donasi telah terpenuhi</p>
+                                @else
+                                    <a href="{{ url('/donasi/proses/'.$data->id.'') }}" class="btn btn-primary mt-3" aria-label="Donasi untuk Asrama">DONASI</a>
+                                @endif
                             </div>
                         </div>
                     </div>

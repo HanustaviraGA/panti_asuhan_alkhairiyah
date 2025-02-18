@@ -19,9 +19,11 @@ class DonasiMidtransController extends Controller
         if(env('MIDTRANS_PRODUCTION') == true){
             Config::$serverKey = env('MIDTRANS_SERVER_KEY');
             $this->server_key = env('MIDTRANS_SERVER_KEY');
+            $this->base_url = env('MIDTRANS_BASE_URL');
         }else{
             Config::$serverKey = env('MIDTRANS_SERVER_KEY_SB');
             $this->server_key = env('MIDTRANS_SERVER_KEY_SB');
+            $this->base_url = env('MIDTRANS_BASE_URL_SB');
         }
         Config::$isProduction = env('MIDTRANS_PRODUCTION');
         Config::$isSanitized = true;
@@ -61,8 +63,9 @@ class DonasiMidtransController extends Controller
             }
             // Donasi Donatur
             $kode_donasi = generateCode();
+            $md5_kode = md5($kode_donasi);
             $input = [
-                'id' => md5($kode_donasi),
+                'id' => $md5_kode,
                 'kode_donasi' => $kode_donasi,
                 'id_donasi' => $id_donasi,
                 'id_donatur' => $id_master,
@@ -95,6 +98,8 @@ class DonasiMidtransController extends Controller
                 'item_details' => $itemDetails,
             ];
             $token = Snap::getSnapToken($params);
+            // Update link pembayaran
+            $link = DonasiDonatur::where('id', $md5_kode)->update(['payment_link' => $this->base_url.$token]);
             \DB::commit();
             return response()->json(['token' => $token, 'order_id' => $kode_donasi, 'success' => true], 200);
         } catch (\Exception $e) {
@@ -131,8 +136,23 @@ class DonasiMidtransController extends Controller
                 $check = FinanceDonasi::where('order_id', $notif['order_id'])->first();
                 if($check){
                     // Cek apakah sudah settlement, kalau sudah, abaikan notifikasi berikutnya
-                    if($check['transaction_status'] != 'settlement'){ 
+                    if($check['transaction_status'] != 'settlement'){
                         $operation = $check->update($notif);
+                    }else{
+                        // Update data donasi donatur
+                        $donatur = DonasiDonatur::where('kode_donasi', $notif['order_id'])->first();
+                        $nilai_donasi = $donatur['nilai_donasi'];
+                        $donatur->update(['status' => '1', 'updated_at' => now()]);
+                        // Masukkan nilai donasi ke master donasi
+                        $donasi = MasterDonasi::where('id', $donatur['id_donasi'])->first();
+                        $terkumpul_donasi = $donasi['terkumpul_donasi'] + $nilai_donasi;
+                        $kekurangan_donasi = $donasi['kekurangan_donasi'] - $nilai_donasi;
+                        $rev = [
+                            'terkumpul_donasi' => $terkumpul_donasi,
+                            'kekurangan_donasi' => $kekurangan_donasi,
+                            'updated_at' => now()
+                        ];
+                        $donasi->update($rev);
                     }
                 }else{
                     $operation = FinanceDonasi::create($notif);
