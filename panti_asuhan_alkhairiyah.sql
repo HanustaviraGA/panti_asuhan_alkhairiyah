@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 02/02/2025 06:51:12
+ Date: 24/02/2025 03:43:19
 */
 
 SET NAMES utf8mb4;
@@ -40,6 +40,23 @@ CREATE TABLE `cache_locks`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Table structure for donasi_donatur
+-- ----------------------------
+DROP TABLE IF EXISTS `donasi_donatur`;
+CREATE TABLE `donasi_donatur`  (
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kode_donasi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `id_donasi` bigint(0) UNSIGNED NULL DEFAULT NULL,
+  `id_donatur` bigint(0) UNSIGNED NULL DEFAULT NULL,
+  `nilai_donasi` double NULL DEFAULT NULL,
+  `payment_link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `status` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for failed_jobs
 -- ----------------------------
 DROP TABLE IF EXISTS `failed_jobs`;
@@ -54,6 +71,49 @@ CREATE TABLE `failed_jobs`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `failed_jobs_uuid_unique`(`uuid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for finance_donasi
+-- ----------------------------
+DROP TABLE IF EXISTS `finance_donasi`;
+CREATE TABLE `finance_donasi`  (
+  `transaction_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `transaction_time` datetime(0) NULL DEFAULT NULL,
+  `paid_at` datetime(0) NULL DEFAULT NULL,
+  `transaction_status` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `transaction_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `status_code` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `signature_key` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `settlement_time` datetime(0) NULL DEFAULT NULL,
+  `permata_va_number` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `va_number` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `payment_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `masked_card` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `fraud_status` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `currency` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `acquirer` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `channel_response_message` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `channel_response_code` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `card_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `bank` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `eci` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `biller_code` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `bill_key` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `approval_code` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `status_message` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `amount` double NULL DEFAULT NULL,
+  `gross_amount` double NULL DEFAULT NULL,
+  `payment_status` double NULL DEFAULT NULL,
+  `merchant_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `issuer` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `expiry_time` datetime(0) NULL DEFAULT NULL,
+  `three_ds_version` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  UNIQUE INDEX `finance_pendaftaran_transaction_id_unique`(`transaction_id`) USING BTREE,
+  INDEX `finance_pendaftaran_order_id_index`(`order_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for job_batches
@@ -119,7 +179,7 @@ CREATE TABLE `master_banner`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for master_donasi
@@ -141,6 +201,11 @@ CREATE TABLE `master_donasi`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of master_donasi
+-- ----------------------------
+INSERT INTO `master_donasi` VALUES (1, 'Makan bergizi gratis', 'Untuk pengadaan bubur sehat', 1000000, 0, 1000000, '2025-02-15', 'scoopy1.png', '2025-02-10 12:27:19', '2025-02-18 23:10:52', NULL);
+
+-- ----------------------------
 -- Table structure for master_donatur
 -- ----------------------------
 DROP TABLE IF EXISTS `master_donatur`;
@@ -155,7 +220,7 @@ CREATE TABLE `master_donatur`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for master_gambar_anak
@@ -170,7 +235,7 @@ CREATE TABLE `master_gambar_anak`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for master_kepengurusan
@@ -184,7 +249,7 @@ CREATE TABLE `master_kepengurusan`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of master_kepengurusan
@@ -201,7 +266,7 @@ CREATE TABLE `master_misi`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of master_misi
@@ -222,7 +287,7 @@ CREATE TABLE `master_profile`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of master_profile
@@ -242,7 +307,15 @@ CREATE TABLE `master_program`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of master_program
+-- ----------------------------
+INSERT INTO `master_program` VALUES (1, 'Ujicoba posting', 'Mantap', 'Gambar WhatsApp 2025-01-15 pukul 23.32.12_8e3c0745.jpg', 'bulanan', '2025-02-10 08:02:32', '2025-02-10 08:02:32');
+INSERT INTO `master_program` VALUES (2, 'Mantapkan postingnya', 'TEst123', 'photo_2025-02-05_13-37-58.jpg', 'bulanan', '2025-02-10 08:02:52', '2025-02-10 08:02:52');
+INSERT INTO `master_program` VALUES (3, 'Ujicoba posting', 'Mantap jos', 'Town-Hall-Meeting-Sekawan-Media-2023-scaled.jpg', 'mingguan', '2025-02-10 08:03:26', '2025-02-10 08:03:26');
+INSERT INTO `master_program` VALUES (4, 'Ujicoba posting', 'TEst123', 'Gambar WhatsApp 2025-01-15 pukul 23.32.12_8e3c0745.jpg', 'mingguan', '2025-02-10 08:03:36', '2025-02-10 08:03:36');
 
 -- ----------------------------
 -- Table structure for master_tujuan
@@ -254,7 +327,7 @@ CREATE TABLE `master_tujuan`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of master_tujuan
@@ -273,7 +346,7 @@ CREATE TABLE `master_visi`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of master_visi
@@ -354,12 +427,11 @@ CREATE TABLE `users`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE,
   UNIQUE INDEX `users_username_unique`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (1, 'Super Admin', 'superadmin@alkhairiyah.com', 'superadmin', '2024-11-27 21:17:34', '$2y$12$k1qxOMLGBQ8RUpJupX6OFOGA48IVGfqSg.uhZ9Ouuv4f4LSt4hcfC', '4HXL1uw2rQCht0QYbE8ZiFlkvSMheGKf5R5NgBuYO4tmDtvgFexix5gvCk97', 'SA', '2024-11-27 21:17:35', '2024-11-27 21:17:35');
 INSERT INTO `users` VALUES (4, 'Admin', 'admin@gmail.com', 'admin', NULL, '$2y$12$k1qxOMLGBQ8RUpJupX6OFOGA48IVGfqSg.uhZ9Ouuv4f4LSt4hcfC', NULL, 'AD', '2025-01-09 15:04:26', '2025-01-25 00:13:36');
-
 SET FOREIGN_KEY_CHECKS = 1;
